@@ -31,10 +31,10 @@ export default function RootLayout({
             lang="vi" suppressHydrationWarning
             className={`${notoSerif.variable} ${notoDisplay.variable} h-full antialiased`}
         >
-            <body>
+            <body className="min-h-screen flex flex-col">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     <Navbar />
-                    <main>
+                    <main className="flex-1 flex flex-col">
                         {children}
                     </main>
                 </ThemeProvider>
