@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react"
 
 const Card: React.FC<PropsWithChildren> = ({ children }) => {
     return (
-        <div className="shadow-shadow-nord shadow-xl bg-surface rounded-2xl overflow-hidden w-full">
+        <div className="bg-surface rounded-2xl overflow-visible w-full">
             {children}
         </div>
     )
