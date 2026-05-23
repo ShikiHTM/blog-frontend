@@ -21,8 +21,6 @@ const Navbar: React.FC = () => {
 
                 {/* Right side */}
                 <div className="flex-1 flex justify-end items-center gap-5 text-text">
-                    <Link href={"https://www.facebook.com/ShikiHTM/"} className="hover:text-muted transition-colors"><FaFacebook size={"24"} /></Link>
-                    <Link href={"https://github.com/ShikiHTM"} className="hover:text-muted transition-colors"><FaGithub size={"24"}></FaGithub></Link>
                     <ThemeSwitch size={24} />
                 </div>
             </div>
