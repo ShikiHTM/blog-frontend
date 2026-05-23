@@ -2,28 +2,40 @@
 
 Personal blog frontend for [shikihtm](https://github.com/ShikiHTM). Built on Next.js 16 with the App Router, React 19 + the React Compiler, and Tailwind CSS v4.
 
-> **Status:** early scaffolding. The shell (layout, navbar, theming, API client) is in place; the home page and post routes are still to come.
+> **Status:** functional. The home page lists posts from the backend, and `/blog/[slug]` renders MDX content with math and syntax-highlighted code.
 
 ## Stack
 
 - **Framework:** [Next.js 16](https://nextjs.org) (App Router) with the React Compiler enabled
-- **UI:** React 19, [Tailwind CSS v4](https://tailwindcss.com), [react-icons](https://react-icons.github.io/react-icons/)
+- **UI:** React 19, [Tailwind CSS v4](https://tailwindcss.com) (+ [`@tailwindcss/typography`](https://github.com/tailwindlabs/tailwindcss-typography)), [react-icons](https://react-icons.github.io/react-icons/)
 - **Theming:** [next-themes](https://github.com/pacocoursey/next-themes) — light/dark with a Nord-inspired palette
 - **Typography:** Noto Serif + Noto Serif Display (via `next/font/google`, Vietnamese subset)
+- **Content:** [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for RSC MDX rendering
+  - Math: [`remark-math`](https://github.com/remarkjs/remark-math) + [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
+  - Code: [`rehype-pretty-code`](https://rehype-pretty.pages.dev) on [Shiki](https://shiki.style) (themes: `nord` / `catppuccin-latte`)
 - **HTTP client:** [ky](https://github.com/sindresorhus/ky)
+- **Dates:** [date-fns](https://date-fns.org)
 - **Tooling:** TypeScript 5, ESLint 9, Prettier 3, pnpm
 
 ## Project structure
 
 ```
 src/
-├── app/                  # App Router entry (layout, page, globals.css)
+├── app/
+│   ├── layout.tsx              # Root layout: fonts, ThemeProvider, Navbar
+│   ├── page.tsx                # Home — fetches posts and renders BlogCards
+│   ├── globals.css             # Tailwind v4 entry + theme tokens
+│   └── blog/[slug]/
+│       ├── page.tsx            # Post page (MDX + math + code highlighting)
+│       └── not-found.tsx       # 404 for unknown slugs
 ├── components/
-│   ├── layout/navbar.tsx # Sticky top nav with theme toggle and socials
-│   └── ui/Card.tsx       # Shared surface card
-├── config/api.config.ts  # API host + suffix from env
-├── lib/ky.ts             # Configured ky instance
-└── test/api.test.ts      # Ad-hoc API smoke test
+│   ├── layout/navbar.tsx       # Sticky top nav with socials + theme toggle
+│   ├── ui/Card.tsx             # Shared surface card
+│   ├── ui/ThemeSwitch.tsx      # Light/dark toggle (next-themes)
+│   └── blog/BlogCard.tsx       # Post preview card used on the home grid
+├── config/api.config.ts        # API host + suffix from env
+├── lib/ky.ts                   # Configured ky instance
+└── types/api.types.ts          # Post/API response shape
 ```
 
 ## Getting started
