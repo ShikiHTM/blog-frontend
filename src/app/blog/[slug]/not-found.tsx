@@ -30,12 +30,6 @@ export default function BlogNotFound() {
                 >
                     Back to home
                 </Link>
-                <Link
-                    href="/blog"
-                    className="px-5 py-2 rounded-md hover:bg-surface-hover border border-border transition-colors"
-                >
-                    Browse all posts
-                </Link>
             </div>
         </div>
     )
