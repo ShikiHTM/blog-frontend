@@ -3,6 +3,7 @@ export interface ApiResponse {
     slug: string;
     title: string;
     topic: string;
+    author: string;
     cover?: string;
     views: number;
     likes: number;

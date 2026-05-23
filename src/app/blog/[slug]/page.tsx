@@ -8,6 +8,7 @@ import { mdxComponents } from '@/components/mdx/components'
 import { BlogHeader } from '@/components/blog/BlogHeader'
 import { TocSidebar } from '@/components/blog/toc/TocSidebar'
 import { extractToc } from '@/lib/toc'
+import BlogFooter from '@/components/blog/BlogFooter'
 
 interface BlogPageProp {
     params: Promise<{ slug: string }>
@@ -28,7 +29,7 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
     return (
         <div className="flex-1 flex flex-col w-full max-w-4xl mx-auto p-3">
             <BlogHeader title={blogData.title} date={blogData.created_at} cover={blogData.cover} />
-            <div className='w-[80%] h-px bg-zinc-600 dark:bg-zinc-400 my-6 items-center mx-auto' />
+            <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-6 items-center mx-auto' />
             <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-10'>
                 <article className='prose md:prose-lg dark:prose-invert max-w-none min-w-0'>
                     <MDXRemote
@@ -39,6 +40,8 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
                 </article>
                 <TocSidebar toc={toc} />
             </div>
+            <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-6 items-center mx-auto' />
+            <BlogFooter author={blogData.author} />
         </div>
     )
 }
