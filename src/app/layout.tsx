@@ -3,6 +3,7 @@ import { Noto_Serif, Noto_Serif_Display } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 const notoSerif = Noto_Serif({
     subsets: ["vietnamese"],
@@ -37,6 +38,7 @@ export default function RootLayout({
                     <main className="flex-1 flex flex-col">
                         {children}
                     </main>
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>
