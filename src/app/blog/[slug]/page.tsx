@@ -16,11 +16,16 @@ interface BlogPageProp {
     params: Promise<{ slug: string }>;
 }
 
+const getPost = async (slug: string) => {
+    const response = await api.get(`posts/${slug}`);
+    if (response.status === 404) return null;
+    return response.json<ApiResponse>();
+}
+
 export async function generateMetadata({ params }: BlogPageProp): Promise<Metadata> {
     const { slug } = await params;
 
-    const response = await api.get(`posts/${(await params).slug}`);
-    const post = await response.json<ApiResponse>();
+    const post = await getPost(slug);
 
     if (!post) notFound();
 
@@ -43,15 +48,12 @@ export async function generateMetadata({ params }: BlogPageProp): Promise<Metada
 }
 
 const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
-    const response = await api.get(`posts/${(await params).slug}`, {
-        throwHttpErrors: false,
-    });
+    const { slug } = await params;
 
-    if (response.status === 404) {
-        notFound();
-    }
+    const post = await getPost(slug);
 
-    const post = await response.json<ApiResponse>();
+    if (!post) notFound();
+
     const toc = extractToc(post.content ?? '');
 
     return (
