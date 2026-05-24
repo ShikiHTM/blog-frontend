@@ -28,5 +28,5 @@ export function extractToc(markdown: string, minDepth = 2, maxDepth = 4): TocIte
         items.push({ id: slugger.slug(text), text, depth: node.depth })
     })
 
-    return items
+    return items;
 }
