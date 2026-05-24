@@ -1,16 +1,25 @@
-'use client';
-
 import BlogCard from '@/components/blog/BlogCard';
-import { useEffect } from 'react';
+import secretConfig from '@/config/secret.config';
 import { format } from 'date-fns';
-import { useBlogStore } from '@/stores/useBlogStore';
+import { Metadata } from 'next';
+import { api } from '@/lib/ky';
+import { ApiResponse } from '@/types/api.types';
 
-export default function Home() {
-    const { blogs, isLoading, isError, fetch } = useBlogStore();
+export const metadata: Metadata = {
+    title: "Shiki Personal Blog",
+    description: "Developer, Win Variation Simp. Personal blog.",
+    openGraph: {
+        title: "Shiki Personal Blog",
+        url: secretConfig.host,
+        type: 'website',
+        images: [{ url: secretConfig.fallbackCover!, width: 1200, height: 630 }]
+    }
+}
 
-    useEffect(() => {
-        fetch();
-    }, [fetch]);
+export const revalidate = 3600;
+
+export default async function Home() {
+    const blogs = await api.get('posts').json<ApiResponse[]>();
 
     return (
         <div className='flex-1 w-full flex flex-col items-center text-text'>
