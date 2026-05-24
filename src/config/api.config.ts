@@ -1,6 +1,6 @@
 const apiConfig = {
-    host: process.env.API_BASE_URL,
-    suffix: process.env.API_SUFFIX
-}
+    host: process.env.NEXT_PUBLIC_API_BASE_URL,
+    suffix: process.env.NEXT_PUBLIC_API_SUFFIX,
+};
 
 export default apiConfig;
