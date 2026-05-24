@@ -10,6 +10,6 @@ export const mdxOptions = {
         rehypeKatex,
         [rehypePrettyCode, {
             theme: { dark: 'github-dark', light: 'github-light' }
-        }]
+        }] as [typeof rehypePrettyCode, Record<string, unknown>]
     ]
 }
