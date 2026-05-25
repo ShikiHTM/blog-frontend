@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Noto_Serif_Display } from "next/font/google";
+import { Noto_Serif, Noto_Serif_Display, Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const notoSerif = Noto_Serif({
     subsets: ["vietnamese"],
@@ -30,7 +33,7 @@ export default function RootLayout({
     return (
         <html
             lang="vi" suppressHydrationWarning
-            className={`${notoSerif.variable} ${notoDisplay.variable} h-full antialiased`}
+            className={cn("h-full", "antialiased", notoSerif.variable, notoDisplay.variable, "font-sans", geist.variable)}
         >
             <body className="min-h-screen flex flex-col">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
