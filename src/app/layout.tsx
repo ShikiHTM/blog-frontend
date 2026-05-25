@@ -20,7 +20,7 @@ const notoDisplay = Noto_Serif_Display({
 })
 
 const blexMono = localFont({
-    src: '/fonts/BlexMonoNerdFont-Regular.woff2',
+    src: './public/fonts/BlexMonoNerdFont-Regular.woff2',
     variable: "--font-blex-mono",
     display: 'swap'
 })
