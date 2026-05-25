@@ -132,4 +132,5 @@ code[data-line-numbers]>[data-line]::before {
     margin-right: 1.5rem;
     text-align: right;
     color: var(--color-text-muted);
+    opacity: 0.6;
 }
