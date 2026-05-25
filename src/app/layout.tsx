@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif, Noto_Serif_Display } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
@@ -18,6 +19,12 @@ const notoDisplay = Noto_Serif_Display({
     variable: "--font-display"
 })
 
+const blexMono = localFont({
+    src: './fonts/BlexMonoNerdFont-Regular.woff2',
+    variable: "--font-blex-mono",
+    display: 'swap'
+})
+
 export const metadata: Metadata = {
     title: "Shiki's Blog",
     description: "Shiki personal blog",
@@ -31,7 +38,7 @@ export default function RootLayout({
     return (
         <html
             lang="vi" suppressHydrationWarning
-            className={cn("h-full", "antialiased", notoSerif.variable, notoDisplay.variable)}
+            className={cn("h-full", "antialiased", notoSerif.variable, notoDisplay.variable, blexMono.variable)}
         >
             <body className="min-h-screen flex flex-col">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
