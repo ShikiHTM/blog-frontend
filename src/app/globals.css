@@ -119,3 +119,17 @@ html.dark .prose pre code span {
     --tw-prose-invert-th-borders: var(--color-border);
     --tw-prose-invert-td-borders: var(--color-border);
 }
+
+code[data-line-numbers] {
+    counter-reset: line;
+}
+
+code[data-line-numbers]>[data-line]::before {
+    counter-increment: line;
+    content: content(line);
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1.5rem;
+    text-align: right;
+    color: var(--color-text-muted);
+}
