@@ -126,7 +126,7 @@ code[data-line-numbers] {
 
 code[data-line-numbers]>[data-line]::before {
     counter-increment: line;
-    content: content(line);
+    content: counter(line);
     display: inline-block;
     width: 1rem;
     margin-right: 1.5rem;
