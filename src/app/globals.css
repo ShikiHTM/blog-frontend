@@ -132,6 +132,6 @@ code[data-line-numbers]>[data-line]::before {
     margin-right: 1.5rem;
     text-align: right;
     color: var(--color-text-muted);
-    font-family: var(--font-blex-mono), monospace, sans-serif;
+    font-family: var(--font-blex-mono), monospace, sans-serif !important;
     opacity: 0.6;
 }
