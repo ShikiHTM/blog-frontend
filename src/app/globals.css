@@ -44,9 +44,9 @@
     --color-border: var(--color-border);
     --color-text: var(--color-text-primary);
     --color-muted: var(--color-text-muted);
-    --font-sans: var(--font-noto-serif), serif;
-    --font-serif: var(--font-noto-serif), serif;
-    --font-display: var(--font-display);
+    --font-sans: var(--font-montserrat), sans-serif;
+    --font-serif: var(--font-montserrat), sans-serif;
+    --font-display: var(--font-montserrat);
 }
 
 @layer base {
