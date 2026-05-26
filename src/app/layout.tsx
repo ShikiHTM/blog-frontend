@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Serif, Noto_Serif_Display } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
@@ -13,19 +13,10 @@ const blexMono = localFont({
     display: 'swap',
 });
 
-const plutoLight = localFont({
-    src: './fonts/PlutoSans-CondLight.woff2',
-    variable: '--font-pluto-sans',
-});
-
-const plutoRegular = localFont({
-    src: './fonts/PlutoSans-CondRegular.woff2',
-    variable: '--font-pluto-header'
-});
-
-const plutoMedium = localFont({
-    src: './fonts/PlutoSans-CondMedium.woff2',
-    variable: '--font-pluto-display'
+const montserrat = Montserrat({
+    subsets: ['vietnamese'],
+    weight: ['400', '600', '700'],
+    variable: '--font-montserrat'
 })
 
 export const metadata: Metadata = {
@@ -42,7 +33,7 @@ export default function RootLayout({
         <html
             lang='vi'
             suppressHydrationWarning
-            className={cn('h-full', 'antialiased', plutoLight.variable, plutoRegular.variable, plutoMedium.variable, blexMono.variable)}
+            className={cn('h-full', 'antialiased', montserrat.variable, blexMono.variable)}
         >
             <body className='min-h-screen flex flex-col'>
                 <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
