@@ -28,7 +28,7 @@ export default async function Home() {
                 <div className='flex flex-col px-4 py-6'>
                     <span className='font-extrabold text-3xl font-display'>Welcome to my blog 👋</span>
                     <span className='mt-3 ml-2 font-serif text-xl'>
-                        I'm Hotome Shiki - Developer, Win Variation Simp
+                        I'm Hotome Shiki - Developer · Win Variation Simp
                     </span>
                 </div>
 
