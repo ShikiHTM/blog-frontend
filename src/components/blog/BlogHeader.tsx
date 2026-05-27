@@ -1,18 +1,18 @@
 import React from 'react'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { format } from 'date-fns'
 
 interface BlogHeaderProps {
     title: string;
     date: string;
-    cover?: string;
+    // cover?: string;
 }
 
-export const BlogHeader: React.FC<BlogHeaderProps> = ({ title, date, cover }) => {
+export const BlogHeader: React.FC<BlogHeaderProps> = ({ title, date }) => {
     return (
         <header className='pt-5 flex flex-col gap-6'>
             <span className='text-muted'>{format(date, "MMMM do, yyyy")}</span>
-            <span className='font-display font-bold text-5xl/normal'>{title}</span>
+            <span className='font-display font-bold text-5xl/tight'>{title}</span>
 
             {/*
             <div className='relative aspect-16/6 w-full'>
