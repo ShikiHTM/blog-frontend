@@ -71,7 +71,7 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
                 <TocSidebar toc={toc} />
             </div>
             <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-6 items-center mx-auto' />
-            <BlogFooter author={post.author} />
+            <BlogFooter />
         </div>
     );
 };
