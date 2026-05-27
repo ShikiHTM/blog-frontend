@@ -12,7 +12,7 @@ export const BlogHeader: React.FC<BlogHeaderProps> = ({ title, date, cover }) =>
     return (
         <header className='pt-5 flex flex-col gap-6'>
             <span className='text-muted'>{format(date, "MMMM do, yyyy")}</span>
-            <span className='font-display font-bold text-4xl/6'>{title}</span>
+            <span className='font-display font-bold text-5xl/normal'>{title}</span>
 
             {/*
             <div className='relative aspect-16/6 w-full'>
