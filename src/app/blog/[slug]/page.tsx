@@ -58,9 +58,9 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
 
     return (
         <div className='flex-1 flex flex-col w-full max-w-4xl mx-auto p-3'>
-            <BlogHeader title={post.title} date={post.created_at} />
-            <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-6 items-center mx-auto' />
-            <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-10'>
+            <BlogHeader title={post.title} date={post.created_at} author={post.author} />
+            <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-8 items-center mx-auto' />
+            <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-5'>
                 <article className='prose md:prose-lg dark:prose-invert max-w-none min-w-0'>
                     <MDXRemote
                         source={post.content!}
