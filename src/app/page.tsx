@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default async function Home() {
-    const blogs = await api.get('posts').json<ApiResponse[]>();
+    const blogs = await api.get('posts', { cache: 'no-store' }).json<ApiResponse[]>();
 
     return (
         <div className='flex-1 w-full flex flex-col items-center text-text'>
