@@ -13,7 +13,7 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ topic, title, cover, date, slug }) => {
     return (
         <Card>
-            <Link href={"/blog/" + slug} className="relative group flex flex-col md:flex-row cursor-pointer">
+            <Link href={"/blog/" + slug} className="relative group flex flex-col md:flex-row cursor-pointer md:h-56">
                 {/* Cover */}
                 {cover && (
                     <>
@@ -43,10 +43,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ topic, title, cover, date, slug }) 
                     <div className="absolute inset-0"></div>
                 )}
 
-                <div className="relative w-full p-5 md:w-1/2 flex flex-col justify-center rounded-b-2xl md:rounded-l-none md:rounded-r-2xl">
-                    <span className="font-display text-xl text-muted/60">{topic}</span>
-                    <span className="font-display text-2xl font-extrabold">{title}</span>
-                    <footer className="bottom-0 mt-2 text-muted/60">{date}</footer>
+                <div className="relative w-full h-full p-5 md:w-1/2 flex flex-col rounded-b-2xl md:rounded-l-none md:rounded-r-2xl">
+                    <header className="flex flex-col gap-1 justify-start">
+                        <span className="font-display text-xl text-muted/60">{topic}</span>
+                        <span className="font-display text-2xl font-extrabold">{title}</span>
+                    </header>
+                    <footer className="bottom-0 text-muted/60 mt-auto">{date}</footer>
                 </div>
             </Link>
         </Card>
