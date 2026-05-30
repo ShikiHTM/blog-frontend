@@ -57,7 +57,7 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
     const toc = extractToc(post.content ?? '');
 
     return (
-        <div className='flex-1 flex flex-col w-full max-w-4xl mx-auto p-3'>
+        <div className='flex-1 flex flex-col w-full max-w-5xl mx-auto p-3'>
             <BlogHeader title={post.title} date={post.created_at} author={post.author} />
             <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-8 items-center mx-auto' />
             <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-5'>

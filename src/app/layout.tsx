@@ -1,16 +1,14 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Fira_Mono, Montserrat } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
 import Navbar from '@/components/layout/navbar';
 import Footer from '@/components/layout/footer';
-import { cn } from '@/lib/utils';
 
-const blexMono = localFont({
-    src: './fonts/BlexMonoNerdFont-Regular.woff2',
-    variable: '--font-blex-mono',
-    display: 'swap',
+const firaMono = Fira_Mono({
+    subsets: ['latin-ext'],
+    weight: ['400', '500', '700'],
+    variable: '--font-fira-mono',
 });
 
 const montserrat = Montserrat({
@@ -33,7 +31,7 @@ export default function RootLayout({
         <html
             lang='vi'
             suppressHydrationWarning
-            className={cn('h-full', 'antialiased', montserrat.variable, blexMono.variable)}
+            className={`h-full antialiased ${montserrat.variable} ${firaMono.variable}`}
         >
             <body className='min-h-screen flex flex-col'>
                 <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
