@@ -33,6 +33,14 @@
         background-color: var(--color-bg);
         color: var(--color-text-primary);
         font-family: var(--font-sans);
+
+        @apply transition-colors duration-300 ease-in-out;
+    }
+
+    pre, code, span, nav,
+    figure[data-rehype-pretty-code-figure], 
+    pre[data-theme] {
+        @apply transition-colors duration-300 ease-in-out;
     }
 }
 
@@ -55,14 +63,6 @@
     --font-serif: var(--font-montserrat), sans-serif;
     --font-code: var(--font-fira-mono), monospace; 
     --font-display: var(--font-montserrat);
-}
-
-@layer base {
-    .theme-transitions-enabled * {
-        transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 1000ms;
-    }
 }
 
 @keyframes skeleton-fade-in {
