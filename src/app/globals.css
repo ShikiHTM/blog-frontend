@@ -36,6 +36,13 @@
     }
 }
 
+@font-face {
+    font-family: "Blex Mono Nerd Font";
+    font-style: normal;
+    font-weight: 400 600 700;
+    src: url('./fonts/BlexMonoNerdFont-Regular.woff2') format('woff2');
+}
+
 @theme {
     --color-background: var(--color-bg);
     --color-surface: var(--color-surface);
@@ -46,6 +53,7 @@
     --color-muted: var(--color-text-muted);
     --font-sans: var(--font-montserrat), sans-serif;
     --font-serif: var(--font-montserrat), sans-serif;
+    --font-code: var(--font-fira-mono), monospace; 
     --font-display: var(--font-montserrat);
 }
 
@@ -55,7 +63,6 @@
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 1000ms;
     }
-
 }
 
 @keyframes skeleton-fade-in {
@@ -76,12 +83,14 @@
 .prose pre code span {
     color: var(--shiki-light);
     background-color: var(--color-surface);
+    font-family: var(--font-code), sans-serif;
 }
 
 html.dark .prose pre code,
 html.dark .prose pre code span {
     color: var(--shiki-dark);
     background-color: var(--color-surface);
+    font-family: var(--font-code), serif;
 }
 
 
@@ -132,6 +141,5 @@ code[data-line-numbers]>[data-line]::before {
     margin-right: 1.5rem;
     text-align: right;
     color: var(--color-text-muted);
-    font-family: var(--font-blex-mono), monospace, sans-serif !important;
     opacity: 0.6;
 }
