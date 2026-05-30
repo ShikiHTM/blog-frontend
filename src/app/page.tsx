@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default async function Home() {
-    const blogs = await api.get('posts', { cache: 'no-store' }).json<ApiResponse[]>();
+    const blogs = (await api.get('posts', { cache: 'no-store' }).json<ApiResponse[]>()).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
     return (
         <div className='flex-1 w-full flex flex-col items-center text-text'>
