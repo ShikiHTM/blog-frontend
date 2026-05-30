@@ -20,6 +20,7 @@ export const BlogHeader: React.FC<BlogHeaderProps> = ({ title, date, author }) =
                             src={"/logo.png"}
                             alt={author}
                             fill
+                            sizes='(max-width: 768px) 40px, 50px'
                             className='object-cover rounded-full'
                         />
                     </div>
