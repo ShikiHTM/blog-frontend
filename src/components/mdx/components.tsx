@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 export const mdxComponents = {
     img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
@@ -10,5 +10,5 @@ export const mdxComponents = {
             style={{ height: 'auto', width: '100%' }}
             unoptimized
         />
-    )
-}
+    ),
+};

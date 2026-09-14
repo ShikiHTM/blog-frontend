@@ -14,8 +14,8 @@ const firaMono = Fira_Mono({
 const montserrat = Montserrat({
     subsets: ['vietnamese'],
     weight: ['400', '600', '700'],
-    variable: '--font-montserrat'
-})
+    variable: '--font-montserrat',
+});
 
 export const metadata: Metadata = {
     title: "Shiki's Blog",

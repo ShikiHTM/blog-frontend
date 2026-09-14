@@ -1,11 +1,11 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface TocState {
-    activeId: string | null
-    setActive: (id: string | null) => void
+    activeId: string | null;
+    setActive: (id: string | null) => void;
 }
 
 export const useTocStore = create<TocState>((set) => ({
     activeId: null,
-    setActive: (id) => set({ activeId: id })
-}))
+    setActive: (id) => set({ activeId: id }),
+}));

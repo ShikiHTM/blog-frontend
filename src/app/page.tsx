@@ -6,22 +6,26 @@ import { api } from '@/lib/ky';
 import { ApiResponse } from '@/types/api.types';
 
 export const metadata: Metadata = {
-    title: "Shiki Personal Blog",
-    description: "Developer, Win Variation Simp. Personal blog.",
+    title: 'Shiki Personal Blog',
+    description: 'Developer, Win Variation Simp. Personal blog.',
     openGraph: {
-        title: "Shiki Personal Blog",
+        title: 'Shiki Personal Blog',
         url: secretConfig.host,
         type: 'website',
-        images: [{ url: secretConfig.fallbackCover!, width: 1200, height: 630 }]
-    }
-}
+        images: [{ url: secretConfig.fallbackCover!, width: 1200, height: 630 }],
+    },
+};
 
 export const revalidate = 3600;
 
 export default async function Home() {
-    const blogs = (await api.get('posts', { 
-        next: {revalidate}
-    }).json<ApiResponse[]>()).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    const blogs = (
+        await api
+            .get('posts', {
+                next: { revalidate },
+            })
+            .json<ApiResponse[]>()
+    ).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
     return (
         <div className='flex-1 w-full flex flex-col items-center text-text'>

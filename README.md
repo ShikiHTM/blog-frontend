@@ -12,9 +12,9 @@ Personal blog frontend for [shikihtm](https://github.com/ShikiHTM). Built on Nex
 - **Theming:** [next-themes](https://github.com/pacocoursey/next-themes) — light/dark with a Nord-inspired palette
 - **Typography:** Noto Serif + Noto Serif Display (via `next/font/google`, Vietnamese subset)
 - **Content:** [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for RSC MDX rendering
-  - Math: [`remark-math`](https://github.com/remarkjs/remark-math) + [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
-  - Code: [`rehype-pretty-code`](https://rehype-pretty.pages.dev) on [Shiki](https://shiki.style) (themes: `nord` / `catppuccin-latte`)
-  - Headings: [`rehype-slug`](https://github.com/rehypejs/rehype-slug) + [`github-slugger`](https://github.com/Flet/github-slugger) for the TOC
+    - Math: [`remark-math`](https://github.com/remarkjs/remark-math) + [`rehype-katex`](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex)
+    - Code: [`rehype-pretty-code`](https://rehype-pretty.pages.dev) on [Shiki](https://shiki.style) (themes: `nord` / `catppuccin-latte`)
+    - Headings: [`rehype-slug`](https://github.com/rehypejs/rehype-slug) + [`github-slugger`](https://github.com/Flet/github-slugger) for the TOC
 - **HTTP client:** [ky](https://github.com/sindresorhus/ky)
 - **Dates:** [date-fns](https://date-fns.org)
 - **Tooling:** TypeScript 5, ESLint 9, Prettier 3, pnpm
@@ -82,12 +82,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Script        | Description                |
-| ------------- | -------------------------- |
-| `pnpm dev`    | Start the dev server       |
-| `pnpm build`  | Production build           |
-| `pnpm start`  | Serve the production build |
-| `pnpm lint`   | Run ESLint                 |
+| Script       | Description                |
+| ------------ | -------------------------- |
+| `pnpm dev`   | Start the dev server       |
+| `pnpm build` | Production build           |
+| `pnpm start` | Serve the production build |
+| `pnpm lint`  | Run ESLint                 |
 
 ## License
 

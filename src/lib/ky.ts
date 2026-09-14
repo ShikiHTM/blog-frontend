@@ -1,10 +1,10 @@
-import apiConfig from "@/config/api.config"
-import ky from "ky"
+import apiConfig from '@/config/api.config';
+import ky from 'ky';
 
 export const api = ky.create({
     headers: {
-        Accept: "application/json"
+        Accept: 'application/json',
     },
     baseUrl: apiConfig.host! + apiConfig.suffix,
-    timeout: 10000
-})
+    timeout: 10000,
+});
