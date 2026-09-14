@@ -1,4 +1,5 @@
 import { api } from '@/lib/ky';
+import { HTTPError } from 'ky';
 import { ApiResponse } from '@/types/api.types';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
@@ -17,10 +18,15 @@ interface BlogPageProp {
 }
 
 const getPost = async (slug: string) => {
-    const response = await api.get(`posts/${slug}`);
-    if (response.status === 404) return null;
-    if (!response.ok) throw new Error('Failed to fetch post');
-    return response.json<ApiResponse>();
+    try {
+        const response = await api.get(`posts/${slug}`);
+        return response.json<ApiResponse>;
+    } catch (error: unknown) {
+        if (error instanceof HTTPError && error.response?.status === 404) {
+            return null;
+        }
+        throw error;
+    }
 };
 
 export async function generateMetadata({ params }: BlogPageProp): Promise<Metadata> {
