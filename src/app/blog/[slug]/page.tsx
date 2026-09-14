@@ -20,7 +20,7 @@ interface BlogPageProp {
 const getPost = async (slug: string) => {
     try {
         const response = await api.get(`posts/${slug}`);
-        return response.json<ApiResponse>;
+        return response.json<ApiResponse>();
     } catch (error: unknown) {
         if (error instanceof HTTPError && error.response?.status === 404) {
             return null;
