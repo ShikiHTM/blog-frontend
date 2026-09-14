@@ -19,8 +19,9 @@ interface BlogPageProp {
 const getPost = async (slug: string) => {
     const response = await api.get(`posts/${slug}`);
     if (response.status === 404) return null;
+    if (!response.ok) throw new Error('Failed to fetch post');
     return response.json<ApiResponse>();
-}
+};
 
 export async function generateMetadata({ params }: BlogPageProp): Promise<Metadata> {
     const { slug } = await params;
@@ -40,11 +41,11 @@ export async function generateMetadata({ params }: BlogPageProp): Promise<Metada
                     url: post.cover || secretConfig.fallbackCover!,
                     width: 1200,
                     height: 630,
-                    alt: slug
-                }
-            ]
-        }
-    }
+                    alt: slug,
+                },
+            ],
+        },
+    };
 }
 
 const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
@@ -62,11 +63,7 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
             <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-8 items-center mx-auto' />
             <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-5'>
                 <article className='prose md:prose-lg dark:prose-invert max-w-none min-w-0'>
-                    <MDXRemote
-                        source={post.content!}
-                        components={mdxComponents}
-                        options={{ mdxOptions }}
-                    ></MDXRemote>
+                    <MDXRemote source={post.content!} components={mdxComponents} options={{ mdxOptions }}></MDXRemote>
                 </article>
                 <TocSidebar toc={toc} />
             </div>
