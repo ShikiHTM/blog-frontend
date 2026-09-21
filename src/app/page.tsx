@@ -25,7 +25,7 @@ export default async function Home() {
                 next: { revalidate },
             })
             .json<ApiResponse[]>()
-    ).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    );
 
     return (
         <div className='flex-1 w-full flex flex-col items-center text-text'>
