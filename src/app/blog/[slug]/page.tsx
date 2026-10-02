@@ -69,7 +69,7 @@ const BlogPage: React.FC<BlogPageProp> = async ({ params }) => {
             <div className='w-full h-px bg-zinc-600 dark:bg-zinc-400 my-8 items-center mx-auto' />
             <div className='grid xl:grid-cols-[1fr_15rem] xl:gap-5'>
                 <article className='prose md:prose-lg dark:prose-invert max-w-none min-w-0'>
-                    <MDXRemote source={post.content!} components={mdxComponents} options={{ mdxOptions }}></MDXRemote>
+                    <MDXRemote source={post.content!} components={mdxComponents} options={{ mdxOptions: mdxOptions as any, blockJS: false }}></MDXRemote>
                 </article>
                 <TocSidebar toc={toc} />
             </div>
